@@ -42,14 +42,14 @@ const router = new Router();
  *                  descripition: a boolean to set whether user is admin or not
  *                  example: false
  *
- *      UserSuccess:
+ *      UserCreationSuccess:
  *          type: object
  *          properties:
  *              message:
  *                  type: string
  *                  description: a message regarding user creation success
  *                  example: success
- *              new_user:
+ *              returned_user:
  *                  type: object
  *                  properties:
  *                      username:
@@ -65,6 +65,45 @@ const router = new Router();
  *                           description: a boolean to set whether user is admin or not
  *                           example: false
  *
+ *      UserCreationFailure:
+ *          type: object
+ *          properties:
+ *              message:
+ *                  type: string
+ *                  description: a failure message
+ *                  example: failure
+ *
+ *
+ */
+
+/**
+ * @swagger
+ * /user:
+ * post:
+ *      security: []
+ *
+ *      tags:
+ *          - user
+ *      description: creates a new user
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/NewUser'
+ *      responses:
+ *          '201':
+ *              description: response success
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/UserCreationSchema'
+ *                  '501':
+ *                      description: error response user not created
+ *                      content:
+ *                          application/json:
+ *                              schema:
+ *                                  $ref: '#/components/schemas/UserCreationFailure'
  *
  *
  */
