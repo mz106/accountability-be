@@ -3,6 +3,9 @@ require("dotenv").config();
 const express = require("express");
 const port = process.env.PORT;
 
+// routers
+const userRouter = require("./user/routes");
+
 // swagger
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
@@ -53,6 +56,8 @@ if (process.env.NODE_ENV === "dev") {
 }
 
 app.use(express.json());
+
+app.use("/user", userRouter);
 
 app.get("/health", (req, res) =>
   res.status(200).json({ msg: "API is healthy" })

@@ -1,6 +1,4 @@
-const { Router } = require("express");
-
-const router = new Router();
+const router = require("express").Router();
 
 /**
  * @swagger
@@ -107,5 +105,15 @@ const router = new Router();
  *
  *
  */
+console.log("yfktfktf");
+// create user signup
+
+router.post("/", (req, res) => {
+  try {
+    res.status(201).json({ msg: "all good" });
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
+});
 
 module.exports = router;
