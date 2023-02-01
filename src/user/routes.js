@@ -1,5 +1,7 @@
 const { Router } = require("express");
 
+const { createUser} = require("./userController");
+
 const router = new Router();
 
 /**
@@ -107,5 +109,7 @@ const router = new Router();
  *
  *
  */
+
+userRouter.post("/user",createUser);
 
 module.exports = router;
