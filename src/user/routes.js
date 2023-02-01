@@ -1,5 +1,9 @@
 const { Router } = require("express");
 
+const {hashPass} = require("../middleware/authentication");
+
+const { createUser} = require("./userController");
+
 const router = new Router();
 
 /**
@@ -107,5 +111,7 @@ const router = new Router();
  *
  *
  */
+
+userRouter.post("/user", hashPass, createUser);
 
 module.exports = router;
