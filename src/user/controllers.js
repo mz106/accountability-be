@@ -2,6 +2,9 @@
 
 // TO DO => Need to import user model here 
 
+const jwt = require("jsonwebtoken");
+
+
 // create a new user
 exports.createUser = async (req, res) => {
   try {
@@ -19,11 +22,17 @@ exports.createUser = async (req, res) => {
         ],
       }
     );
-      res.status(201).json({
+    //  Create a token
+    const token = await jwt.sign({ id: newUser.id,username: newUser.username }, process.env.SECRET);
+
+    newUser.token = token;
+    res.status(201).json({
+      token: token,
       id: newUser.id,
       username: newUser.username,
       is_admin: newUser.is_admin,
     });
+
   } catch (error) {
       res.status(500).json({ message: error.message,});
   }
