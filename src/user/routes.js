@@ -3,7 +3,7 @@ const { Router } = require("express");
 const {hashPass} = require("../middleware/authentication");
 const {validateNewUser} = require("../middleware/validation");
 
-const { createUser} = require("./userController");
+const { createUser} = require("./controllers.js");
 
 const router = new Router();
 
