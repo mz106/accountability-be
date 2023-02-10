@@ -1,3 +1,4 @@
+
 // Use Sequelize 
 const { Sequelize } =  require("sequelize");
 

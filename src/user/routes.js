@@ -113,6 +113,6 @@ const router = new Router();
  *
  */
 
-userRouter.post("/user", validateNewUser, hashPass, createUser);
+router.post("/user", validateNewUser, hashPass, createUser);
 
 module.exports = router;
