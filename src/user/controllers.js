@@ -1,6 +1,6 @@
 //  CRUD operations for user 
 
-// TO DO => Need to import user model here 
+const User = require("./model.js");
 
 const jwt = require("jsonwebtoken");
 
