@@ -1,5 +1,7 @@
 const User = require("../user/model.js");
 
+// Comment / uncomment the checks that need to be carried out 
+
 exports.validateNewUser = async (request, response,next) => {
 
   const checks = [
@@ -34,4 +36,15 @@ const validatePassword = (request) => {
     console.log(error);
     response.status(500).send({ error: error.message });
   }
+};
+
+
+const isUserUnique = async (request) => {
+  const user = await User.findOne({where: {username: request.body.username,}});
+
+  if (user) {
+    return {status: false, msg: "Username unavailable"};
+  }
+
+  return { status: true };
 };
