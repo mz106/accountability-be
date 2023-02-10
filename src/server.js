@@ -58,6 +58,10 @@ if (process.env.NODE_ENV === "dev") {
 
 app.use(express.json());
 
+// Import routes
+const userRouter = require("./user/routes");
+app.use(userRouter);
+
 app.get("/health", (req, res) =>
   res.status(200).json({ msg: "API is healthy" })
 );
