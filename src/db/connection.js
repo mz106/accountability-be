@@ -1,6 +1,3 @@
-// Include Dotenv to load environments - will be used for db connection 
-require('dotenv').config()
-
 // Use Sequelize 
 const { Sequelize } =  require("sequelize");
 

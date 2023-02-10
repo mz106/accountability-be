@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 // Import database and sync tables
 const { sequelize } = require("./db/connection");
 const syncTables = async () => { await sequelize.sync(); }
