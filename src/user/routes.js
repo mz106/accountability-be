@@ -1,8 +1,9 @@
 const { Router } = require("express");
 
 const {hashPass} = require("../middleware/authentication");
+const {validateNewUser} = require("../middleware/validation");
 
-const { createUser} = require("./userController");
+const { createUser} = require("./controllers.js");
 
 const router = new Router();
 
@@ -112,6 +113,6 @@ const router = new Router();
  *
  */
 
-userRouter.post("/user", hashPass, createUser);
+router.post("/user", validateNewUser, hashPass, createUser);
 
 module.exports = router;
