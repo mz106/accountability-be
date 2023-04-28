@@ -1,4 +1,5 @@
-const router = require("express").Router();
+const { Router } = require("express");
+const router = new Router();
 
 /**
  * @swagger
@@ -105,7 +106,7 @@ const router = require("express").Router();
  *
  *
  */
-console.log("yfktfktf");
+
 // create user signup
 
 router.post("/", (req, res) => {
